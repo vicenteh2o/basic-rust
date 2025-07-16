@@ -25,6 +25,12 @@ fn main() {
     // float
     let pi:f32 = 3.1415901020304050607;
     println!("Current value: {}", pi.ceil());
+    println!("Current value: {pi:.2}");
+
+    // casting types
+    let miles_away = 50.5;
+    let miles_away_i8 = miles_away as i8;
+    println!("{miles_away_i8}");
 
     // strings
     println!("Dear Emily,\nHow have you been?");
