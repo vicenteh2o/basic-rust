@@ -1,5 +1,7 @@
-const TAX_RATE: f64 = 7.25;
+type Meters = i32;
 
 fn main() {
-    println!("The tax: {TAX_RATE}")
+    let mile_race_length: Meters = 1600;
+    let miles_race_length: Meters = 1000;
+    println!("All data: {mile_race_length} and {miles_race_length}")
 }
