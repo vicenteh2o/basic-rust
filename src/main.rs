@@ -1,6 +1,8 @@
 fn main() {
-    let grams_of_protein = "100.345";
-    let grams_of_protein = 100.345;
-    let mut grams_of_protein = 100;
-    grams_of_protein = 105;
+    let coffe_price = 5.99;
+    {
+        let coffe_price = 1.99;
+        println!("The coffe price is {coffe_price}");
+    }
+    println!("The coffe price is {coffe_price}")
 }
