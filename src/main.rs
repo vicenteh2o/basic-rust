@@ -23,7 +23,7 @@ fn main() {
     let years: isize = -15_000;
 
     // float
-    let pi:f32 = 3.1415901020304050607;
+    let pi: f32 = 3.1415901020304050607;
     println!("Current value: {}", pi.ceil());
     println!("Current value: {pi:.2}");
 
@@ -39,4 +39,22 @@ fn main() {
 
     let filepath = r"C:\My Documents\new\videos";
     println!("{filepath}");
+
+    // math operations
+    let addition = 5 + 4;
+    let subtraction = 5 - 4;
+    let multiplication = 3 * 4;
+
+    let floor_division = 5 / 3;
+    println!("{floor_division}");
+
+    let decimal_division = 5.0 / 3.0;
+    println!("{decimal_division}");
+
+    let remainder = 7 % 2;
+    println!("Remainder: {remainder}");
+
+    let mut year = 2025;
+    year += 1;
+    println!("The new year is: {year}")
 }
