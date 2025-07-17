@@ -11,6 +11,14 @@ fn main() {
     let unit_result = ();
     let unit_result2 = mystery();
     println!("{:?}", unit_result2);
+
+    // blocks
+    let multiplier = 3;
+    let calculation = {
+        let value = 5 + 4;
+        value * multiplier
+    };
+    println!("Calculation: {calculation}");
 }
 
 fn mystery() {}
