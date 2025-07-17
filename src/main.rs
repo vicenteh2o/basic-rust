@@ -1,3 +1,5 @@
+use std::ops::Range;
+
 #[allow(unused_variables)]
 fn main() {
     let value: i32 = -15;
@@ -73,7 +75,10 @@ fn main() {
     let making_event = purchased_ticket && plane_on_time;
     let making_event_other_day = purchased_ticket || plane_on_time;
     println!("It is '{}' that I will arrive as expected", making_event);
-    println!("It is '{}' that I will arrive on another day", making_event_other_day);
+    println!(
+        "It is '{}' that I will arrive on another day",
+        making_event_other_day
+    );
 
     let subscription = true;
     let admin = false;
@@ -83,7 +88,69 @@ fn main() {
     let first_initial = 'B';
     let emoji: char = '👍';
 
-    println!("{} {}", first_initial.is_alphabetic(), emoji.is_alphabetic());
+    println!(
+        "{} {}",
+        first_initial.is_alphabetic(),
+        emoji.is_alphabetic()
+    );
 
-    
+    // array
+    let numbers: [i32; 6] = [4, 8, 15, 16, 23, 42];
+    let apples = ["Granny Smith", "McIntosh", "Red Delicius"];
+    println!("Length: {}", apples.len());
+
+    let currency_rates: [f64; 0] = [];
+
+    let mut seasons: [&str; 4] = ["primavera", "verano", "otonho", "invierno"];
+    let new_season = seasons[2].to_uppercase();
+    seasons[2] = new_season.as_str();
+    println!("Seasons: {}", seasons[2]);
+
+    // Display implementation
+    let greetings = ["Alo", "Hola", "Hello"];
+
+    println!("{}", 5);
+    println!("{}", true);
+    println!("{}", 3.14);
+    println!("{greetings:?}"); // implement `std::fmt::Display
+    println!("{greetings:#?}"); // # implement prettier
+
+    // Macro
+    dbg!(2 + 2);
+    dbg!(greetings);
+
+    // tuple
+    let employee = ("Vicen", 40, "Developer");
+    // let name = employee.0;
+    // let age = employee.1;
+    // let department = employee.2;
+    let (name, age, department) = employee;
+
+    println!("Name: {name}, age: {age} and department: {department}");
+    println!("{employee:?}");
+
+    // range
+    let month_days = 1..31;
+    println!("{month_days:?}");
+
+    let month_days = 1..=31;
+    println!("{month_days:?}");
+
+    for number in month_days {
+        print!("{number}");
+    }
+
+    let letters = 'a'..='d';
+    println!("");
+    for letter in letters {
+        print!("{letter}");
+    }
+
+    // generics
+     println!("");
+    let weekly_days:Range<i32> = 1..8;
+    print!("{weekly_days:?}");
+     println!("");
+     let weekly_names:Range<char> = 'l'..'d';
+     print!("{weekly_names:?}");
 }
