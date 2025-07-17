@@ -6,10 +6,17 @@ fn main() {
     
     let result = square(5);
     println!("{result}");
+
+    // unit: its an empty tuple
+    let unit_result = ();
+    let unit_result2 = mystery();
+    println!("{:?}", unit_result2);
 }
 
+fn mystery() {}
+
 fn square(number:i32) -> i32 {
-    return number * number;
+     number * number
 }
 
 fn open_store(neighborhood: &str) {
