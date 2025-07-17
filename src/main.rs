@@ -4,6 +4,12 @@ fn main() {
     bake_pizza(5, "Cheese");
     swim_in_profit();
     
+    let result = square(5);
+    println!("{result}");
+}
+
+fn square(number:i32) -> i32 {
+    return number * number;
 }
 
 fn open_store(neighborhood: &str) {
