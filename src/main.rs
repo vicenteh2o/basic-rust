@@ -56,5 +56,34 @@ fn main() {
 
     let mut year = 2025;
     year += 1;
-    println!("The new year is: {year}")
+    println!("The new year is: {year}");
+
+    // boolean
+    let active = true;
+    let is_young = year < 2024;
+    println!("{}", !is_young);
+
+    // equality and inequality operators
+    println!("Are those numbers equals ? {}", 26 == 25);
+    println!("Are these types NOT equals ? {}", 13 != 13.2 as i32);
+
+    // AND logic with && and OR with ||
+    let purchased_ticket = true;
+    let plane_on_time = true;
+    let making_event = purchased_ticket && plane_on_time;
+    let making_event_other_day = purchased_ticket || plane_on_time;
+    println!("It is '{}' that I will arrive as expected", making_event);
+    println!("It is '{}' that I will arrive on another day", making_event_other_day);
+
+    let subscription = true;
+    let admin = false;
+    println!("Can this user see my site? {}", subscription || admin);
+
+    // character type
+    let first_initial = 'B';
+    let emoji: char = '👍';
+
+    println!("{} {}", first_initial.is_alphabetic(), emoji.is_alphabetic());
+
+    
 }
