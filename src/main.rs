@@ -19,6 +19,11 @@ fn main() {
         value * multiplier
     };
     println!("Calculation: {calculation}");
+
+    let mystery = {
+        5 + 4;
+    };
+    print!("mys: {mystery:?}");
 }
 
 fn mystery() {}
