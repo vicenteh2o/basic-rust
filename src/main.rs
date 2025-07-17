@@ -54,4 +54,40 @@ fn main() {
         x if x % 2 != 0 => println!("{x} is an odd number"),
         _ => unreachable!(),
     }
+
+    // iterate
+    let mut seconds = 10;
+    loop {
+        if seconds <= 0 {
+            println!("Blastoff!");
+            break;
+        }
+
+        if seconds % 2 == 0 {
+            println!("{seconds} sec (even number), skipping 3 seconds..");
+            seconds -= 3;
+            continue;
+        }
+
+        println!("{seconds} seconds to blastoff..");
+        seconds -= 1;
+    }
+
+    let mut count = 4;
+    while count > 0 {
+        println!("Count: {count}");
+        count -= 1;
+    }
+
+    // recursion
+    countdown(5);
+}
+
+fn countdown(seconds: i32) {
+    if seconds == 0 {
+        println!("Blastoff!");
+    } else {
+        println!("{seconds} to blastoff..");
+        countdown(seconds - 1);
+    }
 }
