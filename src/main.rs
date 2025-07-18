@@ -41,5 +41,32 @@ fn main() {
     // dereference operator: follows an address
     println!("De-Reference value: {}", *my_int_ref);
 
-    // String, str and &String, &str
+    // String(heap), str(hardcode encoded in binary),
+    // &String(ref heap), &str(ref to memory loaded from binary)
+    let ice_cream = "Cookies and Cream";
+    println!("{}", ice_cream);
+
+    // the copy trait with ref
+    let ice_cream = "Cookies and Cream"; //address 1
+    let dessert = ice_cream; //address 1
+
+    // ownership and fn params
+    let oranges = String::from("Oranges");
+    print_my_value(oranges); // let value = oranges;
+    // oranges not the owner anymore
+    // println!("{oranges} is still valid");
+
+    // mutable params
+    let burger = String::from("Burger");
+    add_fries(burger); // let meal = burger;
+}
+
+fn add_fries(mut meal: String) {
+    meal.push_str(" and Fries");
+    println!("{meal}");
+}
+
+// ownership and fn params
+fn print_my_value(value: String) {
+    println!("Your value is {value}");
 }
