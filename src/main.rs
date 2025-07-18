@@ -12,5 +12,4 @@ fn main() {
     // string on the heap,
     // stack: reference, length(5) and capacity(10)
     let mut candy = String::from("Kitkat");
-    // alo
 }
