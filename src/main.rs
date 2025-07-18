@@ -59,6 +59,24 @@ fn main() {
     // mutable params
     let burger = String::from("Burger");
     add_fries(burger); // let meal = burger;
+
+    // return values I
+    let type_cake = bake_cake();
+    println!("I now have a {type_cake} cake");
+    // return values II
+    let mut current_meal = String::new();
+    current_meal = add_flour(current_meal);
+    println!("{current_meal}");
+}
+
+fn add_flour(mut meal: String) -> String {
+    meal.push_str("Add flour");
+    meal
+}
+
+fn bake_cake() -> String {
+    let cake = String::from("Chocolate Mousse");
+    return cake;
 }
 
 fn add_fries(mut meal: String) {
