@@ -1,93 +1,90 @@
-fn even_or_odd(number: i32) {
-    let result = if number % 2 == 0 { "even" } else { "odd" };
-    println!("The number is {result}")
-}
-
 #[allow(unused_variables)]
 fn main() {
-    let age = 17;
-    let permited_age = 18;
+    // copy trait
+    let time = 2025;
+    let year = time;
 
-    if age >= permited_age {
-        println!("Its major age.")
-    } else {
-        println!("Can't enter.")
-    }
+    // str: stored direct on binary(hard coded in binary executable),
+    // not dinamyc
+    let food: &str = "pasta";
+    // String: store on the heap, mutable
+    let text = String::new();
+    // string on the heap,
+    // stack: reference, length(5) and capacity(10)
+    let mut candy = String::from("Kitkat");
+    println!("Candy: {candy}");
+    candy.push_str(" forever");
+    println!("Candy: {candy}");
 
-    let season = "Other"; //"Summer";
+    // Moves and ownership
+    let person = String::from("Vicen");
+    // genius new ownership of the heap allocation
+    // person become out of scope
+    let genius = person;
+    // free memory allocation from heap, not stack
+    drop(genius);
 
-    // if season == "Summer" {
-    //     println!("school's out!");
-    // } else if season == "Winter" {
-    //     println!("Vacations!")
-    // }
+    // clone: creates 2 copies on heap
+    let name_id = String::from("id001");
+    let copy_name = name_id.clone();
 
-    even_or_odd(7);
+    println!("Name ID: {name_id}");
 
-    // match (switch)
-    let evaluation = true;
+    // references and borrowing &
+    let my_stack_value = 2;
+    let my_int_ref = &my_stack_value;
+    println!("Reference value: {my_int_ref}");
 
-    let result = match evaluation {
-        true => 1,
-        false => 2,
-    };
-    println!("resul evaluation: {result}");
+    let my_heap_value = String::from("Toyota");
+    let my_heap_reference = &my_heap_value;
 
-    match season {
-        "Summer" => println!("school's out!"),
-        "Winter" => println!("Vacations!"),
-        _ => println!("Coffe and rain..."),
-    }
-    // match evaluation {
-    //     true => {
-    //         println!("The value is true");
-    //     }
-    //     false => {
-    //         println!("The value is false");
-    //     }
-    // }
+    // dereference operator: follows an address
+    println!("De-Reference value: {}", *my_int_ref);
 
-    let number = 8;
+    // String(heap), str(hardcode encoded in binary),
+    // &String(ref heap), &str(ref to memory loaded from binary)
+    let ice_cream = "Cookies and Cream";
+    println!("{}", ice_cream);
 
-    match number {
-        value if value % 2 == 0 => println!("{value} is an even number"),
-        x if x % 2 != 0 => println!("{x} is an odd number"),
-        _ => unreachable!(),
-    }
+    // the copy trait with ref
+    let ice_cream = "Cookies and Cream"; //address 1
+    let dessert = ice_cream; //address 1
 
-    // iterate
-    let mut seconds = 10;
-    loop {
-        if seconds <= 0 {
-            println!("Blastoff!");
-            break;
-        }
+    // ownership and fn params
+    let oranges = String::from("Oranges");
+    print_my_value(oranges); // let value = oranges;
+    // oranges not the owner anymore
+    // println!("{oranges} is still valid");
 
-        if seconds % 2 == 0 {
-            println!("{seconds} sec (even number), skipping 3 seconds..");
-            seconds -= 3;
-            continue;
-        }
+    // mutable params
+    let burger = String::from("Burger");
+    add_fries(burger); // let meal = burger;
 
-        println!("{seconds} seconds to blastoff..");
-        seconds -= 1;
-    }
-
-    let mut count = 4;
-    while count > 0 {
-        println!("Count: {count}");
-        count -= 1;
-    }
-
-    // recursion
-    countdown(5);
+    // return values I
+    let type_cake = bake_cake();
+    println!("I now have a {type_cake} cake");
+    // return values II
+    let mut current_meal = String::new();
+    current_meal = add_flour(current_meal);
+    println!("{current_meal}");
 }
 
-fn countdown(seconds: i32) {
-    if seconds == 0 {
-        println!("Blastoff!");
-    } else {
-        println!("{seconds} to blastoff..");
-        countdown(seconds - 1);
-    }
+fn add_flour(mut meal: String) -> String {
+    meal.push_str("Add flour");
+    meal
+}
+
+fn bake_cake() -> String {
+    let cake = String::from("Chocolate Mousse");
+    return cake;
+}
+
+fn add_fries(mut meal: String) {
+    meal.push_str(" and Fries");
+    println!("{meal}");
+}
+
+// ownership and fn params
+fn print_my_value(value: String) {
+    println!("Your value is {value}");
 }
