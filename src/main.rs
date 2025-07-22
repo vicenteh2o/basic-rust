@@ -86,7 +86,17 @@ fn main() {
 
     // dangling ref
     let city = create_city();
-    println!("{city}")
+    println!("{city}");
+
+    // ownership arrays and tuples
+    let registrations = [true, false, true];
+    let first = registrations[0];
+    println!("{first} and {registrations:?}");
+
+    let languages = [String::from("Rust"), String::from("Javascript")];
+    // let first_lang = languages[0].clone();
+    let first_lang = &languages[0];
+    println!("{first_lang} and {languages:?}");
 }
 
 // dangling ref
