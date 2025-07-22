@@ -65,13 +65,23 @@ fn main() {
     println!("I now have a {type_cake} cake");
     // return values II
     let mut current_meal = String::new();
-    current_meal = add_flour(current_meal);
+    add_flour(&mut current_meal);
     println!("{current_meal}");
+
+    // reference string
+    show_my_meal(&current_meal);
 }
 
-fn add_flour(mut meal: String) -> String {
+// meal: String (full ownership with NO permision to modidy)
+// mut meal: String (full ownership with permision to modidy)
+// meal: &String (ref to string, mem address, with NO permision to update)
+// meal: &mut String (ref to string, mem address, with permision to update)
+fn add_flour(meal: &mut String) {
     meal.push_str("Add flour");
-    meal
+}
+
+fn show_my_meal(meal: &String) {
+    println!("Meal steps: {meal}")
 }
 
 fn bake_cake() -> String {
