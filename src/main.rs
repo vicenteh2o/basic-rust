@@ -70,6 +70,28 @@ fn main() {
 
     // reference string
     show_my_meal(&current_meal);
+
+    // multiple inmutable ref
+    // mutable ref restrictions
+    let mut car = String::from("Red");
+    let ref1 = &mut car;
+    let ref2 = &car;
+    println!("ref {ref2}");
+    // ownership with inmutable and mutable ref
+    let mut coffee = String::from("Mocha");
+    let a = &mut coffee;
+    println!("{a}");
+    let b = a;
+    println!("{b}");
+
+    // dangling ref
+    let city = create_city();
+    println!("{city}")
+}
+
+// dangling ref
+fn create_city() -> String {
+    String::from("New York")
 }
 
 // meal: String (full ownership with NO permision to modidy)
